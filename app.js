@@ -6,6 +6,11 @@ const routes = require('./routes/routes');
 const dbMaria = require('./util/mariaDb'); // CONNECTION POOL
 const dbArango = require('./util/arangoDb');
 
+const { LocalStorage } = require('node-localstorage');
+localStorage = new LocalStorage('./local_storage');
+
+const User = require('./models/user');
+
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
@@ -14,11 +19,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 // TEST THE DB
-// db.execute('SELECT * FROM users WHERE email = ?', ['brigitt1a121@yahoo.com']).then(result =>{
-//     console.log(result[0]);
-// }).catch(err => {
-//     console.log(err);
-// });
+dbMaria.execute('SELECT * FROM users WHERE email = ?', ['brigitt@yahoo.com']).then(result =>{
+    console.log(result[0]);
+}).catch(err => {
+    console.log(err);
+});
+
+// const user = new User('Brigitta', 'Rucz', 'brigitta@yahoo.com', 'password', 1604856996, 'denmark', 'copenhagen', "", "", new Date('1998-03-16'));
+
+// user.createUser().then(result => {
+// 	// localStorage.setItem('sessionId', user.id);
+// 	console.log(result);
+// }).catch(error => {
+// 	console.log(error);
+// })
 
 // TEST THE DB
 // var result = dbArango.query('FOR x IN circles RETURN x').then(value => {
