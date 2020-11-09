@@ -3,10 +3,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
-    res.status(200).send('<h1>Works!</h1>')
-});
+const authController = require('../controllers/authenticate');
 
+router.get('/authenticate', authController.getAuth);
+router.post('/authenticate/:action', authController.postAuth);
 // const { LocalStorage } = require('node-localstorage');
 // localStorage = new LocalStorage('./local_storage');
 
@@ -15,12 +15,16 @@ router.get('/', (req, res, next) => {
 //     return res.redirect('/authenticate');
 // });
 
+const shopController = require('../controllers/shop');
+
+router.get('/shop', shopController.getShop);
+
 // const authController = require('../controllers/authenticate');
 // const eventsController = require('../controllers/events');
 // const profileController = require('../controllers/profile');
 
 // router.get('/authenticate', authController.getAuth);
-// router.post('/authenticate/:action', authController.postAuth);
+
 
 // router.get('/dashboard', eventsController.getEvents);
 // router.post('/dashboard/events', eventsController.postAddEvent);

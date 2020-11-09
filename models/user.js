@@ -2,14 +2,14 @@ const e = require('express');
 const db = require('../util/mariaDb'); 
 
 module.exports = class User {
-    constructor(first_name, last_name, email, password, created, country, city, street,
+    constructor(first_name, last_name, email, password, country, city, street,
                 postal_code, birthdate, hair_color, skin_color) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         // TODO: hash
         this.password = password;
-        this.created = created;
+        this.created = new Date().getTime();
         this.country = country;
         this.city = city;
         this.street = street ? street : "";
@@ -23,9 +23,9 @@ module.exports = class User {
         this.product_reviews = "";
     }
 
-    // static fetchUser(email) {
-    //     return db.execute('SELECT * FROM users WHERE email = ?', [email]);
-    // }
+    static fetchUser(email) {
+        return db.execute('SELECT * FROM users WHERE email = ?', [email]);
+    }
 
     createUser() {
         return db.execute('INSERT INTO users (first_name, last_name, email, password, created, country, city, street, postal_code, birthdate, hair_color, skin_color, previous_transactions, dominating_brand, dominating_product_subcategory, product_reviews ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',

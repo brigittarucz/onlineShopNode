@@ -6,11 +6,6 @@ const routes = require('./routes/routes');
 const dbMaria = require('./util/mariaDb'); // CONNECTION POOL
 const dbArango = require('./util/arangoDb');
 
-const { LocalStorage } = require('node-localstorage');
-localStorage = new LocalStorage('./local_storage');
-
-const User = require('./models/user');
-
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
@@ -19,11 +14,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 // TEST THE DB
-dbMaria.execute('SELECT * FROM users WHERE email = ?', ['brigitt@yahoo.com']).then(result =>{
-    console.log(result[0]);
-}).catch(err => {
-    console.log(err);
-});
+// dbMaria.execute('SELECT * FROM users WHERE email = ?', ['brigitt@yahoo.com']).then(result =>{
+//     console.log(result[0]);
+// }).catch(err => {
+//     console.log(err);
+// });
 
 // const user = new User('Brigitta', 'Rucz', 'brigitta@yahoo.com', 'password', 1604856996, 'denmark', 'copenhagen', "", "", new Date('1998-03-16'));
 

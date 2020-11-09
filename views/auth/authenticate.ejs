@@ -1,0 +1,49 @@
+<%- include('../includes/head.ejs') %>
+    
+    <h3>Singup</h3>
+    <form id="signup" method="POST" action="authenticate/signup">
+        <input type="text" name="first_name" value="myFirstName">
+        <input type="text" name="last_name" value="myLastName">
+        <input type="text" name="email" value="myemail@email.com">
+        <input type="text" name="password" value="password">
+        <input type="text" name="repeatpassword" value="password">
+        <select name="country">
+            <option value="denmark">Denmark</option>
+            <option value="romania">Romania</option>
+            <option value="hungary">Hungary</option>
+        </select>
+        <select name="city">
+            <option value="copenhagen">Copenhagen</option>
+            <option value="bucharest">Bucharest</option>
+            <option value="budapest">Budapest</option>
+        </select>
+        <input type="text" name="street" placeholder="Street">
+        <input type="text" name="postal_code" placeholder="Postal Code">
+        <input type="date" name="birthdate">
+        <select name="hair_color">
+            <option value="0">Hair Color</option>
+            <option value="1">Blonde</option>
+            <option value="2">Brown</option>
+            <option value="3">Brunette</option>
+            <option value="4">Dyed</option>
+        </select>
+        <select name="skin_color">
+            <option value="0">Skin Color</option>
+            <option value="1">Fair</option>
+            <option value="2">Light</option>
+            <option value="3">Beige</option>
+            <option value="4">Almond</option>
+            <option value="5">Chesnut</option>
+            <option value="6">Ebony</option>
+        </select>
+        <button type="submit">Signup</button>
+    </form>
+
+    <h3>Login</h3>
+    <form id="login" method="POST" action="authenticate/login">
+        <input type="text" name="email" value="brigitta@yahoo.com">
+        <input type="text" name="password" value="password">
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
