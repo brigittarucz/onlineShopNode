@@ -1,10 +1,16 @@
 <%- include('../includes/head.ejs') %>
     
-    <!-- TODO: Form for product -->
-    <!-- TODO: Get in checkboxes key ingredients -->
-    <!-- TODO: Create new key ingredient + pick its effect / create new effect -->
     <!-- TODO: ingredient type has -->
-    <!-- TODO: effect type prevents or ensures -->
+    <!-- TODO: post, validate and sanitize data -->
+    <!-- TODO: get, update and delete in admin panel -->
+    <!-- TODO: make it a transaction -->
+    <!-- TODO: if new ingredients add to ingredientsVertices -->
+    <!-- TODO: if new ingredients then clearly effects add to effectsVertices -->
+    <!-- TODO: if new ingredients add to shop edges ingredientsVertices/ingredient_key effectsVertices/effect_key ensures / prevents-->
+    <!-- TODO: if new product add for each ingredients productsVertices/returned_key ingredientsVertices/ingredient_key has -->
+    <!-- TODO: recommendation system through a few queries -->
+    <!-- TODO: add product to basket -->
+    <!-- TODO: make payment -->
 
     <h3>Create product</h3>
     <form id="create-product" method="POST" action="admin/create">
@@ -32,7 +38,7 @@
             <% }) %>
         </div>
         <br>
-        <p style="display: inline">Ingredient not here? Create one! </p>
+        <p style="display: inline">Ingredient not here? Create it! 3 new ingredients are allowed. </p>
         <button id="create-ingredient" style="display: inline">Create</button> <br><br>
         <div class="ingredients__container-new">
             
@@ -48,26 +54,26 @@
 
     <template id="template-ingredient">
         <div class="new-ingredient">
-            <input type="text" name="ingredient_name" placeholder="Ingredient Name">
-            <select id="select-effect" name="ingredient_effect"> 
+            <input type="text" id="ingredient_name-input" name="ingredient_name" placeholder="Ingredient Name">
+            <select id="ingredient_effect-select_a" name="ingredient_effect-1"> 
                 <option value="">Effect required</option>
                 <% effects.forEach(effect => { %>
                     <option value="<%= effect._key %>"><%= effect.effect %></option>
                 <% }) %>
             </select>
-            <select id="select-effect" name="ingredient_effect"> 
+            <select id="ingredient_effect-select_b" name="ingredient_effect-2"> 
                 <option value="">Effect optional</option>
                 <% effects.forEach(effect => { %>
                     <option value="<%= effect._key %>"><%= effect.effect %></option>
                 <% }) %>
             </select>
-            <select id="select-effect" name="ingredient_effect"> 
+            <select id="ingredient_effect-select_c" name="ingredient_effect-3"> 
                 <option value="">Effect optional</option>
                 <% effects.forEach(effect => { %>
                     <option value="<%= effect._key %>"><%= effect.effect %></option>
                 <% }) %>
             </select>
-            <p>Effect not here? Create one! 2 new effects are allowed.</p>
+            <p>Effect not here? Create it! 2 new effects are allowed.</p>
             <button id="create-effect" style="display: inline">Create</button>
             <div class="effects__container-new" style="border: 1px solid black">
 
@@ -78,9 +84,9 @@
 
     <template id="template-effect">
         <div class="new-effect">
-            <input type="text" name="effect_key" placeholder="Effect Name">
-            <input type="text" name="effect_description" placeholder="Short Description">
-            <select id="select-type" name="effect_type">
+            <input type="text" id="effect_key-input" name="effect_key" placeholder="Effect Name">
+            <input type="text" id="effect_description-input" name="effect_description" placeholder="Short Description">
+            <select id="effect_type-select" name="effect_type">
                 <option value="prevents">Prevents</option>
                 <option value="ensures">Ensures</option>
             </select>

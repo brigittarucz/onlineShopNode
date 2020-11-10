@@ -24,6 +24,7 @@ exports.getAdmin = (req,res,next) => {
 
 exports.postAdmin = (req,res,next) => {
     // return console.log(req.params.operation);
-    return console.log(req.body);
+    var obj = req.body;
+    return console.log(obj);
 
 }
