@@ -1,0 +1,12 @@
+<article class="products__container-article" 
+            data-category="<%= oProduct.category %>"
+            data-subcategory="<%= oProduct.subcategory %>"
+            data-productId="<%= oProduct._id %>">
+                <h4><%= oProduct.name %></h4>
+                <p>Brand: <%= oProduct.brand %></p>
+                <p><%= oProduct.price %> <%= oProduct.currency %></p>
+                <p><%= oProduct.quantity %> <%= oProduct.measurement_unit %></p>
+                <p>Rating: <%= oProduct.rating %></p>
+                <p>Reviews: <%= oProduct.total_reviews %></p>
+                <p>Key ingredients: <%= oProduct.key_ingredients %></p>
+</article>

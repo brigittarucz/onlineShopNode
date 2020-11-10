@@ -2,5 +2,30 @@
     
     <h1> <%= userId %> </h1>
 
+
+    <div class="products__container">
+            <div class="products__container-facial_care">
+                <h2>Facial Care</h2>
+                <% products.forEach((oProduct) => { %>
+                    <% if(oProduct.category === 'skin care') { %>
+                        <div>
+                            <%- include('../includes/product.ejs', {oProduct: oProduct}) %>
+                        </div>
+                    <% } %>
+                <% }); %>
+            </div>
+          
+            <div class="products__container-body_care">
+                <h2>Body Care</h2>
+                <% products.forEach((oProduct) => { %>
+                    <% if(oProduct.category === 'body care') { %>
+                        <div>
+                            <%- include('../includes/product.ejs', {oProduct: oProduct}) %>
+                        </div>
+                    <% } %>
+                <% }); %>
+            </div>
+    </div>
+
 </body>
 </html>

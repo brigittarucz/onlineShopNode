@@ -32,15 +32,15 @@ exports.postAuth = (req, res, next) => {
                         return res.redirect('/shop');
                     } else {
                         console.log(new Error("Invalid password"));
-                        res.redirect('/authenticate');
+                        return res.redirect('/authenticate');
                     }
                 } else {
                     console.log(new Error("Invalid credentials"));
-                    res.redirect('/authenticate');
+                    return res.redirect('/authenticate');
                 }
         }).catch(error => {
                 console.log(new Error(error));
-                res.redirect('/authenticate');
+                return res.redirect('/authenticate');
         });
         // console.log(req.body.email);
         // console.log(req.body.password);
@@ -51,33 +51,33 @@ exports.postAuth = (req, res, next) => {
 
         if(!emailValidator.validate(req.body.email)) {
             console.log(new Error("Invalid email"));
-            res.redirect('/authenticate');
+            return res.redirect('/authenticate');
         } 
 
         if(!(req.body.password.length >= 8)) {
             console.log(new Error("Password length too short"));
-            res.redirect('/authenticate');
+            return res.redirect('/authenticate');
         }
 
         if(!(req.body.password === req.body.repeatpassword)) {
             console.log(new Error("Passwords do not match"));
-            res.redirect('/authenticate');
+            return res.redirect('/authenticate');
         }
 
         if(req.body.country.length === 0) {
             console.log(new Error("Country field is empty"));
-            res.redirect('/authenticate');
+            return res.redirect('/authenticate');
         }
 
         if(req.body.city.length === 0) {
             console.log(new Error("City field is empty"));
-            res.redirect('/authenticate');
+            return res.redirect('/authenticate');
         }
 
         fetchUser(req.body.email).then(result => {
             if(result[0].length) {
                 console.log(new Error("User already exists"));
-                res.redirect('/authenticate');
+                return res.redirect('/authenticate');
             } else {
 
                 const user = new User(req.body.first_name, req.body.last_name, req.body.email, 
@@ -91,7 +91,7 @@ exports.postAuth = (req, res, next) => {
                     return res.redirect('/shop');
                 }).catch(error => {
                     console.log(new Error("User cannot be created"));
-                    res.redirect('/authenticate');
+                    return res.redirect('/authenticate');
                 })
             }
         })

@@ -1,0 +1,93 @@
+<%- include('../includes/head.ejs') %>
+    
+    <!-- TODO: Form for product -->
+    <!-- TODO: Get in checkboxes key ingredients -->
+    <!-- TODO: Create new key ingredient + pick its effect / create new effect -->
+    <!-- TODO: ingredient type has -->
+    <!-- TODO: effect type prevents or ensures -->
+
+    <h3>Create product</h3>
+    <form id="create-product" method="POST" action="admin/create">
+        <input type="text" name="brand" placeholder="Type brand">
+        <input type="text" name="name" placeholder="Type name">
+        <input type="text" name="image" placeholder="Insert image link">
+        <select id="select-category" name="category">
+            <option value="skin-care">Skin Care</option>
+            <option value="makeup">Makeup</option>
+            <option value="hair">Hair</option>
+        </select>
+        <select id="select-subcategory" name="subcategory">
+        </select>
+        <input type="number" name="price" step=".01" placeholder="0.00">
+        <input type="number" name="quantity" placeholder="Quantity">
+        <select id="select-measurement" name="measurement_unit">
+            <option value="ml">ml</option>
+            <option value="g">g</option>
+        </select>
+        <input type="number" name="discount" placeholder="Discount percentage">
+        <div class="ingredients__container">
+            <% ingredients.forEach(ingredient => { %>
+                <input type="checkbox" name="<%= ingredient %>" value="<%= ingredient %>">
+                <label for="<%= ingredient %>"><span class="ingredient-name"><%= ingredient %></span></label> <br>
+            <% }) %>
+        </div>
+        <br>
+        <p style="display: inline">Ingredient not here? Create one! </p>
+        <button id="create-ingredient" style="display: inline">Create</button> <br><br>
+        <div class="ingredients__container-new">
+            
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- TODO: read/update/delete with modals -->
+    <h3>Manipulate product</h3>
+    <div class="products__container">
+
+    </div>
+
+    <template id="template-ingredient">
+        <div class="new-ingredient">
+            <input type="text" name="ingredient_name" placeholder="Ingredient Name">
+            <select id="select-effect" name="ingredient_effect"> 
+                <option value="">Effect required</option>
+                <% effects.forEach(effect => { %>
+                    <option value="<%= effect._key %>"><%= effect.effect %></option>
+                <% }) %>
+            </select>
+            <select id="select-effect" name="ingredient_effect"> 
+                <option value="">Effect optional</option>
+                <% effects.forEach(effect => { %>
+                    <option value="<%= effect._key %>"><%= effect.effect %></option>
+                <% }) %>
+            </select>
+            <select id="select-effect" name="ingredient_effect"> 
+                <option value="">Effect optional</option>
+                <% effects.forEach(effect => { %>
+                    <option value="<%= effect._key %>"><%= effect.effect %></option>
+                <% }) %>
+            </select>
+            <p>Effect not here? Create one! 2 new effects are allowed.</p>
+            <button id="create-effect" style="display: inline">Create</button>
+            <div class="effects__container-new" style="border: 1px solid black">
+
+            </div>
+            <button id="remove-ingredient" style="display: inline">Remove ingredient</button>
+        </div>
+    </template>
+
+    <template id="template-effect">
+        <div class="new-effect">
+            <input type="text" name="effect_key" placeholder="Effect Name">
+            <input type="text" name="effect_description" placeholder="Short Description">
+            <select id="select-type" name="effect_type">
+                <option value="prevents">Prevents</option>
+                <option value="ensures">Ensures</option>
+            </select>
+            <button id="remove-effect">Remove effect</button>
+        </div>
+    </template>
+
+    <script src="/js/dynamicForm.js"></script>
+</body>
+</html>

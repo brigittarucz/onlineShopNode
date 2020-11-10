@@ -19,6 +19,11 @@ const shopController = require('../controllers/shop');
 
 router.get('/shop', shopController.getShop);
 
+const adminController = require('../controllers/admin');
+
+router.get('/admin', adminController.getAdmin);
+router.post('/admin/:operation', adminController.postAdmin);
+
 // const authController = require('../controllers/authenticate');
 // const eventsController = require('../controllers/events');
 // const profileController = require('../controllers/profile');
