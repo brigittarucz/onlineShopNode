@@ -43,7 +43,7 @@ function addIngredientFormElements() {
         var clone = ingredientTemplate.cloneNode(true);
         var createIngredientBtn = clone.querySelector("#create-effect");
 
-        clone.querySelector("#ingredient_name-input").setAttribute("name", `ingredient[${counterIngredientFields}][ingredient_name]`);
+        clone.querySelector("#ingredient_name-input").setAttribute("data-counter", `ingredient[${counterIngredientFields}][ingredient_name]`);
         clone.querySelector("#ingredient_effect-select_a").setAttribute("name", `ingredient[${counterIngredientFields}][ingredient_effect-a]`);
         clone.querySelector("#ingredient_effect-select_b").setAttribute("name", `ingredient[${counterIngredientFields}][ingredient_effect-b]`);
         clone.querySelector("#ingredient_effect-select_c").setAttribute("name", `ingredient[${counterIngredientFields}][ingredient_effect-c]`);
@@ -52,6 +52,7 @@ function addIngredientFormElements() {
 
         clone.querySelector("#remove-ingredient").addEventListener("click", () => {
             event.target.parentElement.remove();
+            counterIngredientFields--;
         });
 
         ingredientContainer.appendChild(clone);
@@ -67,11 +68,11 @@ function addEffectFormElements() {
     var effectContainer = event.target.parentElement.querySelector(".effects__container-new");
     
     if(effectContainer.children.length < 2) {
-        var counterParentElement = event.target.parentElement.querySelector("#ingredient_name-input").getAttribute("name");
+        var counterParentElement = event.target.parentElement.querySelector("#ingredient_name-input").dataset.counter;
         counterParentElement = counterParentElement.match(/\d+/g); 
 
         var clone = effectTemplate.cloneNode(true);
-        clone.querySelector("#effect_key-input").setAttribute("name", `ingredient[${counterParentElement[0]}][effect_key${effectContainer.children.length === 0 ? '-a' : '-b'}]`);
+        clone.querySelector("#effect_key-input").setAttribute("name", `ingredient[${counterParentElement[0]}][effect_key]`);
         clone.querySelector("#effect_description-input").setAttribute("name", `ingredient[${counterParentElement[0]}][effect_description]`);
         clone.querySelector("#effect_type-select").setAttribute("name", `ingredient[${counterParentElement[0]}][effect_type]`);
         
@@ -84,5 +85,6 @@ function addEffectFormElements() {
     }
 }
 
-
-
+ // TODO: prevent user from picking the same ingredient effect 
+ // TODO: force user to respect the order of the fields
+ // TODO: prevent user from submitting the form with empty fields on ingredients

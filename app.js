@@ -5,6 +5,7 @@ const path = require('path');
 const routes = require('./routes/routes');
 const dbMaria = require('./util/mariaDb'); // CONNECTION POOL
 const dbArango = require('./util/arangoDb');
+const db = require('./util/arangoDb');
     
 app.set('views', './views');
 app.set('view engine', 'ejs');
@@ -30,12 +31,29 @@ app.use('/', routes);
 // })
 
 // TEST THE DB
-// var result = dbArango.query('FOR x IN circles RETURN x').then(value => {
+// var result = dbArango.query({query: 'INSERT @user INTO productsVertices RETURN NEW', bindVars: {user: {name: "myFirstName"}}}).then(value => {
 //     return value.all();
 // })
 
 // result.then(myres => {
 //     console.log(myres);
 // })
+
+// var action = function() {
+//     var db = require('@arangodb').db;
+//     console.log(db);
+//     db.query({query: 'INSERT @product INTO productsVertices RETURN NEW', bindVars: {product: "Brigitta"}}).then(value => {
+//         console.log(value.all());
+//     })
+//     return 1;
+// };
+
+// var parameters = [dbArango];
+
+// var transaction = dbArango.executeTransaction({read: 'productsVertices'}, String(action), ["hey"]).then(result => {
+//     console.log(result);
+// }).catch(error => {
+//     console.log(error);
+// });
 
 app.listen(3000);
