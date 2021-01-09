@@ -32,17 +32,4 @@ module.exports = class User {
         [ this.first_name, this.last_name, this.email, this.password, this.created, this.country, this.city, this.street, this.postal_code, this.birthdate, this.hair_color, this.skin_color, this.previous_transactions, this.dominating_brand, this.dominating_product_subcategory, this.product_reviews]);
     }
 
-    // static fetchUserById(id) {
-    //     return db.execute('SELECT * FROM users WHERE users.id = ?', [id]);
-    // }
-
-    // saveUser() {
-    //     return db.execute('UPDATE users SET email = ?, password = ?, proffesion = ?, experience = ?, interests = ? WHERE users.id = ?', 
-    //     [this.email, this.password, this.proffesion, this.experience, this.interests, this.id]);
-    // }
-
-    // static updateUserEvents(id, event) {
-    //     return db.execute('UPDATE users SET events = ? WHERE users.id = ?', [event, id]);
-    // }
-
 }

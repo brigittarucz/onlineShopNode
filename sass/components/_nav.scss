@@ -1,0 +1,9 @@
+.nav {
+   text-align: center;
+   margin-top: 0.5rem;
+   
+    &__li-item {
+        display: inline;
+        margin-right: 3rem;
+    }
+}

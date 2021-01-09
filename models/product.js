@@ -48,6 +48,10 @@ module.exports = class Product {
         return connection;
     }
 
+    static removeProductById(id) {
+        var connection = db.query('FOR u IN users REMOVE u IN users LET removed = OLD RETURN removed._key')
+    }
+
     getProductByName(name) {
         var connection = db.query({query: 'FOR product IN productsVertices FILTER product.name == @name RETURN product.name', bindVars: {name: name}}).then(value => {
             return value.all();

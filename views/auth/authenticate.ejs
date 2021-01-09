@@ -1,49 +1,125 @@
 <%- include('../includes/head.ejs') %>
-    
-    <h3>Signup</h3>
-    <form id="signup" method="POST" action="authenticate/signup">
-        <input type="text" name="first_name" value="myFirstName">
-        <input type="text" name="last_name" value="myLastName">
-        <input type="text" name="email" value="myemail@email.com">
-        <input type="text" name="password" value="password">
-        <input type="text" name="repeatpassword" value="password">
-        <select name="country">
-            <option value="denmark">Denmark</option>
-            <option value="romania">Romania</option>
-            <option value="hungary">Hungary</option>
-        </select>
-        <select name="city">
-            <option value="copenhagen">Copenhagen</option>
-            <option value="bucharest">Bucharest</option>
-            <option value="budapest">Budapest</option>
-        </select>
-        <input type="text" name="street" placeholder="Street">
-        <input type="text" name="postal_code" placeholder="Postal Code">
-        <input type="date" name="birthdate">
-        <select name="hair_color">
-            <option value="0">Hair Color</option>
-            <option value="1">Blonde</option>
-            <option value="2">Brown</option>
-            <option value="3">Brunette</option>
-            <option value="4">Dyed</option>
-        </select>
-        <select name="skin_color">
-            <option value="0">Skin Color</option>
-            <option value="1">Fair</option>
-            <option value="2">Light</option>
-            <option value="3">Beige</option>
-            <option value="4">Almond</option>
-            <option value="5">Chesnut</option>
-            <option value="6">Ebony</option>
-        </select>
-        <button type="submit">Signup</button>
-    </form>
 
-    <h3>Login</h3>
-    <form id="login" method="POST" action="authenticate/login">
-        <input type="text" name="email" value="brigitta@yahoo.com">
-        <input type="text" name="password" value="password">
-        <button type="submit">Login</button>
-    </form>
+<main class="authenticate">
+    <section class="authenticate__section-left">
+        <%- include('../includes/nav.ejs') %>
+        <h1 class="text__1-athene">Everyday Beauty</h1>
+        <h3 class="text__3-lora text__3">Why let fate decide your appearance? Choose to look your best everyday! Find exclusive
+            products and deals to match your expectations and budget.</h3>
+        
+        <form class="form form__login" id="login" method="POST" action="authenticate/login">
+            <div class="form__group">
+                <label class="text__5 text__5-roboto form__label">Email</label>
+                <input type="text" name="email" placeholder="Enter your email">
+            </div>
+            <div class="form__group">
+                <label class="text__5 text__5-roboto form__label">Password</label>
+                <input type="password" name="password" placeholder="Enter your password">
+            </div>
+            <button class="btn-general" type="submit">Login</button>
+            <h4 class="text__6-lora text__6">Don't have an account? Sign up <a onclick="openModal()" class="signup">here</a>.</h4>
+        </form>
+    </section>
+    <section class="authenticate__section-right">
+        <video autoplay muted loop id="myVideo">
+            <source src="assets/images/auth_cover.mp4" type="video/mp4">
+        </video>
+    </section>
+    
+</main>
+
+
+<div class="modal__signup">
+
+    <div class="modal__signup-container">
+        <div class="modal__signup-container_left">
+
+        </div>
+        <div class="modal__signup-container_right">
+            <span onclick="closeModal()" class="close">&times;</span>
+
+            <h4 class="text__2 text__2-athene">Create Account</h4>
+            <form class="form form__signup" id="signup" method="POST" action="authenticate/signup">
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">First name</label>
+                    <input type="text" name="first_name" placeholder="Enter your first name">
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Last name</label>
+                    <input type="text" name="last_name" placeholder="Enter your last name">
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Email</label>
+                    <input type="text" name="email" placeholder="Enter your email">
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Country</label>
+                    <select name="country">
+                        <option value="undefined">Country</option>
+                        <option value="denmark">Denmark</option>
+                        <option value="romania">Romania</option>
+                        <option value="hungary">Hungary</option>
+                    </select>
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">City</label>
+                    <select name="city">
+                        <option value="undefined">City</option>
+                        <option value="copenhagen">Copenhagen</option>
+                        <option value="bucharest">Bucharest</option>
+                        <option value="budapest">Budapest</option>
+                    </select>
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Street</label>
+                    <input type="text" name="street" placeholder="Enter your street">
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Postal Code</label>
+                    <input type="text" name="postal_code" placeholder="Enter postal code">
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Date Of Birth</label>
+                    <input type="date" name="birthdate" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Password</label>
+                    <input type="text" name="password" placeholder="Enter password">
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Repeat Password</label>
+                    <input type="text" name="repeatpassword" placeholder="Repeat password">
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Hair Color</label>
+                    <select name="hair_color">
+                        <option value="0">Hair Color</option>
+                        <option value="1">Blonde</option>
+                        <option value="2">Brown</option>
+                        <option value="3">Brunette</option>
+                        <option value="4">Dyed</option>
+                    </select>
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Skin Color</label>
+                    <select name="skin_color">
+                        <option value="0">Skin Color</option>
+                        <option value="1">Fair</option>
+                        <option value="2">Light</option>
+                        <option value="3">Beige</option>
+                        <option value="4">Almond</option>
+                        <option value="5">Chesnut</option>
+                        <option value="6">Ebony</option>
+                    </select>
+                </div>
+                <button class="btn-general" type="submit">Sign up</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+    <script src="js/modal.js"></script>
 </body>
+
 </html>

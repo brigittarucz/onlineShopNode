@@ -1,0 +1,65 @@
+.modal__signup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    &-container {
+        background-color: #fefefe;
+        margin: 5% auto;
+        box-shadow: $shadow-light;
+        width: 60%;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+
+        &_left {
+            width: 100%;
+            height: 100%;
+            background: url('../assets/images/modal_cover.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        &_right {
+            padding: 1rem;
+            position: relative;
+
+            h4 {
+                margin: 2rem 1.5rem;
+            }   
+
+            .close {
+                right: 1rem;
+                top: 0.5rem;
+                position: absolute;
+                font-size: 3.2rem;
+                color: $color-pink_medium;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: $color-pink_dark;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
+
+.signup {
+    color: $color-pink_dark;
+    text-decoration: underline;
+    font-weight: bold;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

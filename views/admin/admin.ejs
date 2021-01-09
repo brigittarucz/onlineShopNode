@@ -2,14 +2,12 @@
     
     <!-- TODO: get, update and delete in admin panel -->
     <!-- TODO: make it a transaction -->
-    <!-- TODO: if new ingredients add to ingredientsVertices -->
-    <!-- TODO: if new ingredients then clearly effects add to effectsVertices -->
-    <!-- TODO: if new ingredients add to shop edges ingredientsVertices/ingredient_key effectsVertices/effect_key ensures / prevents-->
-    <!-- TODO: if new product add for each ingredients productsVertices/returned_key ingredientsVertices/ingredient_key has -->
+    <!-- TODO: make the long function an API and divide the functionality -->
     <!-- TODO: recommendation system through a few queries -->
     <!-- TODO: add product to basket -->
+    <!-- TODO: filter edges by from_ to be the ones contained in products, remove all the others, download csv. products and edges and replace them -->
+    <!-- TODO: when filtering the recommendation still check if product from edge exists nevertheless -->
     <!-- TODO: make payment -->
-    <!-- TODO: draw edges with existent ingredients -->
 
     <h3>Create product</h3>
     <form id="create-product" method="POST" action="admin/create">
@@ -58,6 +56,18 @@
     <h3>Manipulate product</h3>
     <div class="products__container">
 
+        <% products.forEach(oProduct => { %>
+
+            <div>
+                <%- include('../includes/product.ejs', {oProduct: oProduct}) %>
+                <form class="remove-product" method="POST" action="admin/remove" data-formProductId="<%= oProduct._id %>">
+                    <input name="idProduct" type="hidden" value="<%= oProduct._id %>">
+                    <button type="submit">Remove Product</button>
+                </form>
+            </div>
+
+        <% }) %>
+
     </div>
 
     <template id="template-ingredient">
@@ -104,5 +114,6 @@
     </template>
 
     <script src="/js/dynamicForm.js"></script>
+    <script src="/js/adminControl.js"></script>
 </body>
 </html>

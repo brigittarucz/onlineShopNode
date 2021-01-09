@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@400;500;700&family=Roboto:ital,wght@0,300;0,500;1,300&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  overflow-x: hidden;
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  position: relative;
+  scroll-behavior: smooth;
+  overflow: hidden; }
+
+@font-face {
+  font-family: 'Athene';
+  src: url("../assets/typography/Athene-Regular.otf"); }
+
+@font-face {
+  font-family: 'Gill Sans';
+  src: url("../assets/typography/GillSans-Regular.otf"); }
+
+.text__1-athene {
+  font-family: 'Athene', serif;
+  font-size: 4.2rem; }
+
+.text__2 {
+  font-size: 2.6rem; }
+  .text__2-athene {
+    font-family: 'Athene', serif; }
+  .text__2-lato {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    letter-spacing: 100; }
+  .text__2-lora {
+    font-family: 'Lora', serif; }
+    .text__2-lora_bold {
+      font-weight: 700; }
+    .text__2-lora_medium {
+      font-weight: 500; }
+
+.text__3 {
+  font-size: 2rem; }
+  .text__3-lato {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 150; }
+  .text__3-lora {
+    font-family: 'Lora', serif;
+    font-weight: 400; }
+  .text__3-athene {
+    font-family: 'Athene', sans-serif; }
+
+.text__4 {
+  font-size: 1.8rem; }
+  .text__4-roboto {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: 65; }
+  .text__4-lora {
+    font-family: 'Lora', serif;
+    font-weight: 700; }
+
+.text__5 {
+  font-size: 1.6rem; }
+  .text__5-lora {
+    font-family: 'Lora', serif; }
+    .text__5-lora_bold {
+      font-weight: 700; }
+    .text__5-lora_medium {
+      font-weight: 500; }
+  .text__5-gill {
+    font-family: 'Gill Sans', serif; }
+  .text__5-roboto {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500; }
+
+.text__6 {
+  font-size: 1.4rem; }
+  .text__6-lora {
+    font-family: 'Lora', serif;
+    font-weight: 400; }
+  .text__6-roboto {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300; }
+
+.hidden {
+  display: none; }
+
+.modal__signup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4); }
+  .modal__signup-container {
+    background-color: #fefefe;
+    margin: 5% auto;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    width: 60%;
+    display: grid;
+    grid-template-columns: 2fr 3fr; }
+    .modal__signup-container_left {
+      width: 100%;
+      height: 100%;
+      background: url("../assets/images/modal_cover.jpg");
+      background-size: cover;
+      background-position: center; }
+    .modal__signup-container_right {
+      padding: 1rem;
+      position: relative; }
+      .modal__signup-container_right h4 {
+        margin: 2rem 1.5rem; }
+      .modal__signup-container_right .close {
+        right: 1rem;
+        top: 0.5rem;
+        position: absolute;
+        font-size: 3.2rem;
+        color: #E9BCBE;
+        font-weight: bold; }
+      .modal__signup-container_right .close:hover,
+      .modal__signup-container_right .close:focus {
+        color: #DB7F8E;
+        text-decoration: none;
+        cursor: pointer; }
+
+.signup {
+  color: #DB7F8E;
+  text-decoration: underline;
+  font-weight: bold; }
+  .signup:hover {
+    cursor: pointer; }
+
+.authenticate {
+  display: grid;
+  grid-template-columns: 2fr 2fr; }
+  .authenticate__section-left {
+    text-align: center; }
+    .authenticate__section-left h1 {
+      margin: 2rem 0;
+      margin-top: 10rem; }
+    .authenticate__section-left h3 {
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 2rem; }
+    .authenticate__section-left .form__group {
+      width: 40%;
+      margin: 0 auto; }
+      .authenticate__section-left .form__group input::placeholder {
+        text-align: center; }
+  .authenticate__section-right {
+    height: 100vh; }
+    .authenticate__section-right video {
+      object-fit: cover;
+      height: 100%;
+      width: 100%; }
+
+.btn-general {
+  font-family: 'Lora', serif;
+  font-size: 1.6rem;
+  height: 3.5rem;
+  width: 17rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  background-color: #DB7F8E;
+  border: 0; }
+
+.nav {
+  text-align: center;
+  margin-top: 0.5rem; }
+  .nav__li-item {
+    display: inline;
+    margin-right: 3rem; }
+
+.form {
+  position: relative; }
+  .form__signup {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 2.5rem;
+    margin: 0 1.5rem; }
+    .form__signup div:nth-of-type(1) {
+      grid-column: 1/span 3;
+      grid-row: 1/span 1; }
+    .form__signup div:nth-of-type(2) {
+      grid-column: 4/span 3;
+      grid-row: 1/span 1; }
+    .form__signup div:nth-of-type(3) {
+      grid-column: 1/span 2;
+      grid-row: 2/span 1; }
+    .form__signup div:nth-of-type(4) {
+      grid-column: 3/span 2;
+      grid-row: 2/span 1; }
+    .form__signup div:nth-of-type(5) {
+      grid-column: 5/span 2;
+      grid-row: 2/span 1; }
+    .form__signup div:nth-of-type(6) {
+      grid-column: 1/span 2;
+      grid-row: 3/span 1; }
+    .form__signup div:nth-of-type(7) {
+      grid-column: 3/span 2;
+      grid-row: 3/span 1; }
+    .form__signup div:nth-of-type(8) {
+      grid-column: 5/span 2;
+      grid-row: 3/span 1; }
+    .form__signup div:nth-of-type(9) {
+      grid-column: 1/span 3;
+      grid-row: 4/span 1; }
+    .form__signup div:nth-of-type(10) {
+      grid-column: 4/span 3;
+      grid-row: 4/span 1; }
+    .form__signup div:nth-of-type(11) {
+      grid-column: 1/span 3;
+      grid-row: 5/span 1; }
+    .form__signup div:nth-of-type(12) {
+      grid-column: 4/span 3;
+      grid-row: 5/span 1; }
+  .form button {
+    margin: 0 auto;
+    grid-column: 1/span 6;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem; }
+  .form option {
+    color: black;
+    font-style: normal; }
+  .form__group {
+    height: 6.5rem;
+    margin: 0.5rem 0; }
+  .form__label {
+    text-transform: uppercase;
+    color: #635E5E; }
+  .form__checkbox {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem; }
+
+.form select, .form input {
+  border: 0;
+  border-bottom-color: #E9BCBE;
+  border-bottom-width: 2px;
+  border-bottom-style: dotted;
+  display: block;
+  margin: 0.5rem 0;
+  height: 2.5rem;
+  width: 100%; }
+
+.form select, .form input::placeholder, .form input[type=date] {
+  font-style: italic;
+  font-size: 1.4rem;
+  font-family: 'Roboto', sans-serif;
+  color: #CECAC7; }

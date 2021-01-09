@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@400;500;700&family=Roboto:ital,wght@0,300;0,500;1,300&display=swap');
+// font-family: 'Lato', sans-serif;
+// font-family: 'Lora', serif;
+// font-family: 'Roboto', sans-serif;
+
+@font-face {
+    font-family: 'Athene';
+    src: url('../assets/typography/Athene-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Gill Sans';
+    src: url('../assets/typography/GillSans-Regular.otf');
+}
+
+// Page Title
+
+.text__1-athene {
+    font-family: 'Athene', serif;
+    font-size: 4.2rem;
+}
+
+.text__2 {
+    font-size: 2.6rem;
+
+    // Form Title   
+
+    &-athene {
+        font-family: 'Athene', serif;  
+    } 
+
+    // Product Title
+  
+    &-lato {
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+        letter-spacing: 100;  
+    }
+
+    &-lora {
+        font-family: 'Lora', serif;
+
+        // Section Title, Product Price
+
+        &_bold {
+            font-weight: 700;
+        }
+
+        // Product Price
+
+        &_medium {
+            font-weight: 500;
+        }
+    }
+}    
+ 
+.text__3 {        
+    font-size: 2rem;
+
+    // Navigation Items
+
+    &-lato {
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        letter-spacing: 150;
+    }
+
+    // Subheader Auth, Filters
+
+    &-lora {
+        font-family: 'Lora', serif;
+        font-weight: 400;
+    }
+
+    // Form Subtitle
+
+    &-athene {
+        font-family: 'Athene', sans-serif;
+    }
+}
+
+.text__4 {
+    font-size: 1.8rem;
+
+    // Product Title
+
+    &-roboto {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        letter-spacing: 65;
+    }
+
+    // Product Details Title Sections
+
+    &-lora {
+        font-family: 'Lora', serif;
+        font-weight: 700;
+    }
+}
+
+.text__5 {
+    font-size: 1.6rem;
+
+    
+    &-lora {
+        font-family: 'Lora', serif;
+        
+        // Nav Items, Button Selector 
+
+        &_bold {
+            font-weight: 700;
+        }
+
+        // Home Product Brand, Review name, Delete Product Brand
+
+        &_medium {
+            font-weight: 500;
+        }
+    }   
+  
+    // Product Brand, Reviews
+
+    &-gill {
+        font-family: 'Gill Sans', serif;
+    }
+
+    // Form Label, Ingredients Checkboxes
+
+    &-roboto {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+    }
+
+}
+
+.text__6 {
+    font-size: 1.4rem;
+
+    // Ingredients Section Description, Review Date
+
+    &-lora {
+        font-family: 'Lora', serif;
+        font-weight: 400;
+    }
+
+    // Delete Product Title
+
+    &-roboto {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+    }
+
+}

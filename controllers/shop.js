@@ -1,13 +1,9 @@
 const express = require('express');
-// const User = require('../models/user');
-// const uuid = require('uuid');
-// const emailValidator = require('email-validator');
 
 const Product = require('../models/product');
 
 const { LocalStorage } = require('node-localstorage');
 localStorage = new LocalStorage('./local_storage');
-// const { fetchUser } = require('../models/user');
 
 exports.getShop = (req, res, next) => {
     // TODO: add images
@@ -23,3 +19,4 @@ exports.getShop = (req, res, next) => {
         return res.redirect('/authenticate');
     })
 }
+

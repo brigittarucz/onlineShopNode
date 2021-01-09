@@ -1,0 +1,40 @@
+// Authentication screen
+
+.authenticate {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+
+    &__section-left {
+        text-align: center;
+        h1 {
+            margin: 2rem 0;
+            margin-top: 10rem;
+        }
+
+        h3 {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+
+        .form__group {
+            width: 40%;
+            margin: 0 auto;
+
+            input::placeholder {
+                text-align: center;
+            }
+        }
+    }
+
+    &__section-right {
+        height: 100vh;
+
+        video {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

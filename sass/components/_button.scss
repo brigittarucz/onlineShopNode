@@ -1,0 +1,17 @@
+// NORMAL Lora 16 Bold Roman
+
+// DELETE Roboto 16 Regular
+
+.btn {
+    &-general {
+        font-family: 'Lora', serif;
+        font-size: 1.6rem;
+        height: 3.5rem;
+        width: 17rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+        background-color: $color-pink_dark;
+        border: 0;
+    }
+}
