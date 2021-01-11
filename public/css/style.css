@@ -391,6 +391,53 @@ body {
           .product__main-grid_reviews-review div p {
             font-weight: 100; }
 
+.admin {
+  margin: 0 10rem; }
+  .admin h1 {
+    text-align: center;
+    margin: 1.5rem 0; }
+  .admin__main h3 {
+    margin-bottom: 3rem; }
+  .admin__main-cover {
+    margin-bottom: 2rem; }
+    .admin__main-cover img {
+      width: 100%;
+      height: 30rem;
+      object-fit: cover;
+      object-position: top; }
+  .admin__main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2rem; }
+    .admin__main-grid_item-1 {
+      grid-column: 1/span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 2rem; }
+  .admin__main h3 {
+    font-weight: 100; }
+  .admin__main h4 {
+    color: #635E5E;
+    font-weight: 100; }
+  .admin__main .ingredients__container {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap; }
+    .admin__main .ingredients__container-checkbox {
+      display: flex;
+      align-items: center;
+      width: 50%; }
+      .admin__main .ingredients__container-checkbox input[type='checkbox'] {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 1rem; }
+      .admin__main .ingredients__container-checkbox label {
+        font-weight: 100; }
+      .admin__main .ingredients__container-checkbox * {
+        display: inline-block; }
+  .admin__main #select-subcategory option {
+    text-transform: capitalize; }
+
 .btn-general {
   font-family: 'Lora', serif;
   font-size: 1.6rem;
@@ -401,6 +448,10 @@ body {
   color: white;
   background-color: #DB7F8E;
   border: 0; }
+  .btn-general_reverse {
+    color: #DB7F8E;
+    border: 2px solid #DB7F8E;
+    background-color: white; }
 
 .nav {
   text-align: center;
@@ -462,9 +513,13 @@ body {
     grid-column: 1/span 6;
     margin-top: 1rem;
     margin-bottom: 2.5rem; }
+  .form select {
+    background-color: #FEFCFC; }
   .form option {
     color: black;
     font-style: normal; }
+  .form input {
+    background-color: #FEFCFC; }
   .form__group {
     height: 6.5rem;
     margin: 0.5rem 0; }

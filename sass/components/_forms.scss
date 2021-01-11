@@ -84,6 +84,7 @@
     select {
         @extend %input-box;
         @extend %input-text;
+        background-color: $color-pink_light;
     }
     
     option {
@@ -93,6 +94,7 @@
     
     input {
        @extend %input-box;
+       background-color: $color-pink_light;
     
         &::placeholder {
             @extend %input-text;

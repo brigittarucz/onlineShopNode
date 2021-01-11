@@ -13,5 +13,11 @@
         color: white;
         background-color: $color-pink_dark;
         border: 0;
+
+        &_reverse {
+            color: $color-pink_dark;
+            border: 2px solid $color-pink_dark;
+            background-color: white;
+        }
     }
 }
