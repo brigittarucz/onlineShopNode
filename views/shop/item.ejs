@@ -1,11 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<%- include('../includes/head.ejs') %>
+<div class="product">
+    <header class="shop shop__header">
+        <section class="shop__section-left">
+            <a class="text__5 text__5-lora_bold" href="/shop">Basket <span class="icon icon-basket"></span></a>
+            <a class="text__5 text__5-lora_bold" href="/shop">Home</a>
+            <a class="text__5 text__5-lora_bold" href="/admin">Admin</a>
+        </section>
+        <section class="shop__section-center">
+            <%- include('../includes/nav.ejs') %>
+        </section>
+        <section class="shop__section-right">
+            <a class="text__5 text__5-lora_bold" href="/shop">Search <span class="icon icon-search"></span></a>
+            <a class="text__5 text__5-lora_bold" href="/shop">Messaging <span class="icon icon-messaging"></span></a>
+            <a class="text__5 text__5-lora_bold" href="/shop">Logout <span class="icon icon-logout"></span></a>
+        </section>
+    </header>
+
+
+    <main class="product product__main">
+        <h1 class="text__1-athene">Everyday Beauty</h1>
+
+        <div class="product__main-grid"  data-category="<%= product.category %>"
+            data-subcategory="<%= product.subcategory %>" data-productId="<%= product._id %>">
+            <section class="product__main-grid_description">
+                <h2 class="text__3 text__2-lato"><%= product.name %></h2>
+                <div class="product__main-grid_description-brand">
+                    <p class="text__5 text__5-gill"><%= product.brand %></p>
+                    <p class="text__5 text__5-gill">Average rating 4.3</p>
+                </div>
+                <div class="product__main-grid_description-price">
+                    <p class="text__2 text__2-lora_medium"><%= product.price %><%= product.currency%> / <%= product.quantity %><%= product.measurement_unit %></p>
+                </div>
+                <div class="product__main-grid_description-text">
+                    <p class="text__6 text__6-lora">Ut enim ad minim veniam, quis nostrud 
+                        exercitation ullamco laboris nisi ut aliquip ex ea 
+                        commodo consequat. Duis aute irure dolor in 
+                        reprehenderit in voluptate velit esse cillum 
+                        dolore eu fugiat nulla pariatur. Excepteur sint 
+                        occaecat cupidatat non proident, sunt in culpa 
+                        qui official.</p>
+                </div>
+                <div class="product__main-grid_description-measures">
+                    <div class="text__5 text__5-lora_bold measure__product-unit"><%= product.quantity %><%= product.measurement_unit %></div>
+                    <div class="text__5 text__5-lora_bold measure__product-quantity">2</div>
+                </div>
+                <button class="btn btn-general">Add to basket</button> 
+            </section>
+            <section class="product__main-grid_image">
+                <div>
+                    <img src="<%= product.image %>">
+                </div>
+            </section>
+            <section class="product__main-grid_details">
+                <div>
+                    <h4 class="text__4 text__4-lora">Delivery<span class="product__main-grid_details-arrow"></span></h4>
+                </div>
+                <div>
+                    <h4 class="text__4 text__4-lora">Details<span class="product__main-grid_details-arrow"></span></h4>
+                </div>
+                <div>
+                    <h4 class="text__4 text__4-lora">Ingredients<span class="product__main-grid_details-arrow"></span></h4>
+                    <p class="text__6 text__6-lora">
+                        <b><% product.key_ingredients.forEach((ingredient) => { %>
+                            • <%= ingredient %>
+                        <% }) %></b>
+                        water\aqua\eau • glycerin • cetyl alcohol, glyceryl polymet, citrus aurantium dulcis (orange) peel oil, ricinus communis (castor) seed oil*, osmanthus fragrans flower extract, rosa, damascena extract, ribes nigrum bud extract, cinnamomum camphora (camphor) leaf extract
+                        benzaldehyde, hexenyl acetate, ethyl acetate
+                    </p>
+                </div>
+            </section>
+            <section class="product__main-grid_recommendations">
+                <h4 class="text__4 text__4-lora">Recommendations</h4>
+                <div class="product__main-recommendation_container">
+                <%  if(recommendations.length != 0) {
+                        recommendations.forEach((recommendation) => { %>
+
+                    <article class="product__main-recommendation" data-category="<%= recommendation.category %>"
+                        data-subcategory="<%= recommendation.subcategory %>" data-productId="<%= recommendation._id %>">
+                        <a class="products__container-article_hover" href="/shop/item/<%= recommendation._key %>">
+                        </a>
+                        <div>
+                            <img src="<%= recommendation.image %>">
+                        </div>
+                        <p class="text__6 text__6-roboto"><%= recommendation.name %></p>
+                        <p class="text__6 text__6-lora"><%= recommendation.brand %></p>
+                    </article> 
+
+                <%})
+                } else {%>
+                    <p class="text__6 text__6-lora product__main-recommendation_none">No recommendations available for this product. :(   </p>
+                <% } %>
+                </div>
+            </section>
+            <section class="product__main-grid_reviews">
+                <h4 class="text__4 text__4-lora">Reviews</h4>
+                <div class="product__main-grid_reviews-container">
+                    <article class="product__main-grid_reviews-review">
+                        <p class="text__5 text__5-lora_medium">Fantastic</p>
+                        <div>
+                            <img src="../../assets/icons/star.png">
+                            <img src="../../assets/icons/star.png">
+                            <img src="../../assets/icons/star.png">
+                            <p class="text__6 text__6-lora">14 days ago</p>
+                        </div>
+                    </article>
     
-</body>
-</html>
+                    <article class="product__main-grid_reviews-review">
+                        <p class="text__5 text__5-lora_medium">Super cool</p>
+                        <div>
+                            <img src="../../assets/icons/star.png">
+                            <img src="../../assets/icons/star.png">
+                            <img src="../../assets/icons/star.png">
+                            <img src="../../assets/icons/star.png">
+                            <p class="text__6 text__6-lora">18 days ago</p>
+                        </div>
+                    </article>
+    
+                    <article class="product__main-grid_reviews-review">
+                        <p class="text__5 text__5-lora_medium">Super cool</p>
+                        <div>
+                            <img src="../../assets/icons/star.png">
+                            <img src="../../assets/icons/star.png">
+                            <img src="../../assets/icons/star.png">
+                            <img src="../../assets/icons/star.png">
+                            <p class="text__6 text__6-lora">18 days ago</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+</div>

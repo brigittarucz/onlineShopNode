@@ -137,4 +137,13 @@ module.exports = class Product {
 
         return connection;
     }
+
+    getRecommendations(productId, productKey) {
+        var connection = db.query({query: 'FOR vertex IN 1..3 ANY @productId GRAPH "shopGraph" FILTER vertex._key != @productKey AND vertex.brand != null LIMIT 3 RETURN DISTINCT vertex', 
+        bindVars: {productId: productId, productKey: productKey}}).then(value => {
+            return value.all();
+        })
+
+        return connection;
+    }
 }
