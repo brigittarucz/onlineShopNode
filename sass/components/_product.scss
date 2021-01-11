@@ -1,0 +1,45 @@
+.products__container-article {
+    width: 30rem;
+    color: $color-black_medium;
+    position: relative;
+
+    &_hover {
+        position: absolute;
+        z-index: 3;
+        width: 30rem;  
+        height: 28rem; 
+    }
+
+    &_hover:hover {
+        cursor: pointer;
+        background-color: rgba(255,255,255,0.3);
+    }
+
+    h4 {
+        color: $color-black_dark;
+        height: 4rem;
+        overflow-y: hidden;
+    }
+
+    h4, p {
+        margin: 0.5rem 0; 
+    }
+
+    &_img {
+        border: 1px solid $color-lightgrey_light;
+        background-color: white;
+        padding: 2rem;
+        width: 30rem;
+        height: 22rem;
+        object-fit: contain;
+    }
+
+    &_price, &_brand {
+        text-align: right;
+    }
+
+    &_details {
+        display: grid;
+        grid-template-columns: 3fr 1.5fr;
+    }
+}

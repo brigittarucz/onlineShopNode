@@ -1,31 +1,87 @@
 <%- include('../includes/head.ejs') %>
-    
-    <h1> <%= userId %> </h1>
 
+<!-- <h1> <%= userId %> </h1> -->
 
-    <div class="products__container">
-            <div class="products__container-facial_care">
-                <h2>Facial Care</h2>
-                <% products.forEach((oProduct) => { %>
-                    <% if(oProduct.category === 'skin care') { %>
-                        <div>
-                            <%- include('../includes/product.ejs', {oProduct: oProduct}) %>
-                        </div>
-                    <% } %>
-                <% }); %>
+<header class="shop shop__header">
+    <section class="shop__section-left">
+        <a class="text__5 text__5-lora_bold" href="/">Basket <span class="icon icon-basket"></span></a>
+        <a class="text__5 text__5-lora_bold" href="/">Home</a>
+        <a class="text__5 text__5-lora_bold" href="/">Admin</a>
+    </section>
+    <section class="shop__section-center">
+        <%- include('../includes/nav.ejs') %>
+    </section>
+    <section class="shop__section-right">
+        <a class="text__5 text__5-lora_bold" href="/">Search <span class="icon icon-search"></span></a>
+        <a class="text__5 text__5-lora_bold" href="/">Messaging <span class="icon icon-messaging"></span></a>
+        <a class="text__5 text__5-lora_bold" href="/">Logout <span class="icon icon-logout"></span></a>
+    </section>
+</header>
+
+<main class="shop shop__main">
+    <h1 class="text__1-athene">Everyday Beauty</h1>
+
+    <div class="shop__carousel">
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <img src="assets/images/home_cover.jpg">
             </div>
-          
-            <div class="products__container-body_care">
-                <h2>Body Care</h2>
-                <% products.forEach((oProduct) => { %>
-                    <% if(oProduct.category === 'body care') { %>
-                        <div>
-                            <%- include('../includes/product.ejs', {oProduct: oProduct}) %>
-                        </div>
-                    <% } %>
-                <% }); %>
+
+            <div class="mySlides fade">
+                <img src="assets/images/home_cover_2.jpg">
             </div>
+
+            <div class="mySlides fade">
+                <img src="assets/images/home_cover_3.jpg">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
     </div>
 
+    <div class="shop__products products__container">
+        <div class="products__container-facial_care">
+            <h2 class="text__2 text__2-lora_bold">Facial Care</h2>
+            <%- include('../includes/filter.ejs') %>
+            <div class="products__container-articles">
+                <% products.forEach((oProduct) => { %>
+                <% if(oProduct.category === 'skin care') { %>
+                <div>
+                    <%- include('../includes/product.ejs', {oProduct: oProduct}) %>
+                </div>
+                <% } %>
+                <% }); %>
+            </div>
+        </div>
+
+        <div class="products__container-body_care">
+            <h2 class="text__2 text__2-lora_bold">Body Care</h2>
+            <%- include('../includes/filter.ejs') %>
+            <div class="products__container-articles">
+                <% products.forEach((oProduct) => { %>
+                <% if(oProduct.category === 'body care') { %>
+                <div>
+                    <%- include('../includes/product.ejs', {oProduct: oProduct}) %>
+                </div>
+                <% } %>
+                <% }); %>
+            </div>
+        </div>
+    
+    </div>
+</main>
+
+<script src="js/slideshow.js"></script>
 </body>
+
 </html>

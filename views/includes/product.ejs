@@ -1,12 +1,22 @@
-<article class="products__container-article" 
-            data-category="<%= oProduct.category %>"
-            data-subcategory="<%= oProduct.subcategory %>"
-            data-productId="<%= oProduct._id %>">
-                <h4><%= oProduct.name %></h4>
-                <p>Brand: <%= oProduct.brand %></p>
-                <p><%= oProduct.price %> <%= oProduct.currency %></p>
-                <p><%= oProduct.quantity %> <%= oProduct.measurement_unit %></p>
-                <p>Rating: <%= oProduct.rating %></p>
-                <p>Reviews: <%= oProduct.total_reviews %></p>
-                <p>Key ingredients: <%= oProduct.key_ingredients %></p>
+<article class="products__container-article" data-category="<%= oProduct.category %>"
+    data-subcategory="<%= oProduct.subcategory %>" data-productId="<%= oProduct._id %>">
+    <div class="products__container-article_hover">
+    </div>
+    <a class="products__container-article_hover" href="shop/item/<%= oProduct._key %>">
+    </a>
+    <img class="products__container-article_img" src="<%= oProduct.image %>">
+    <div class="products__container-article_details">
+
+        <h4 class="products__container-article_name text__4 text__4-roboto"><%= oProduct.name %></h4>
+        <div>
+            <p class="products__container-article_price text__3 text__2-lora_medium"><%= oProduct.price %>
+                <%= oProduct.currency %></p>
+            <p class="products__container-article_brand text__5 text__5-lora_medium"><%= oProduct.brand %></p>
+        </div>
+    </div>
+    <!-- <p><%= oProduct.quantity %> <%= oProduct.measurement_unit %></p>
+                    <p>Rating: <%= oProduct.rating %></p>
+                    <p>Reviews: <%= oProduct.total_reviews %></p>
+                    <p>Key ingredients: <%= oProduct.key_ingredients %></p> -->
+
 </article>

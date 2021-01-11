@@ -9,6 +9,7 @@ router.post('/authenticate/:action', authController.postAuth);
 const shopController = require('../controllers/shop');
 
 router.get('/shop', shopController.getShop);
+router.get('/shop/item/:productId', shopController.getViewProduct);
 
 const adminController = require('../controllers/admin');
 

@@ -2,8 +2,13 @@
    text-align: center;
    margin-top: 0.5rem;
    
+   ul {
+       display: flex;
+       justify-content: space-between;
+   }
+
     &__li-item {
         display: inline;
-        margin-right: 3rem;
+        margin: 0 1.5rem;
     }
 }

@@ -1,0 +1,13 @@
+.filter {
+    list-style: none;
+    float: right;
+
+    &__item {
+        display: inline-block;
+        margin-left: 2rem;
+
+        span {
+            font-weight: 900;
+        }
+    }
+}
