@@ -24,26 +24,27 @@
     </div>
 
     <div class="admin__main-grid">
-        <div class="admin__main-grid_item-1">
+        <form class="form form__admin admin__main-grid_item-1" id="create-product" method="POST" action="admin/create">
             <div>
                 <h3 class="text__3 text__3-athene">Create product</h3>
-                <form class="form form__admin" id="create-product" method="POST" action="admin/create">
+                <div class="form__admin-container">
+                <section class="form__admin-create">
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Brand</label>
-                        <input type="text" name="brand" placeholder="Enter brand name">
+                        <input type="text" name="brand" required placeholder="Enter brand name">
                     </div>
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Product Name</label>
-                        <input type="text" name="name" placeholder="Enter product name">
+                        <input type="text" name="name" required placeholder="Enter product name">
                     </div>
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Image Link</label>
-                        <input type="text" name="image" placeholder="Insert image link">
+                        <input type="text" name="image" required placeholder="Insert image link">
                     </div>
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Category</label>
-                        <select id="select-category" name="category">
-                            <option value="">Category</option>
+                        <select id="select-category" required name="category">
+                            <option value="" disabled selected>Category</option>
                             <option value="skin-care">Skin Care</option>
                             <option value="makeup">Makeup</option>
                             <option value="hair">Hair</option>
@@ -51,20 +52,20 @@
                     </div>
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Subcategory</label>
-                        <select id="select-subcategory" name="subcategory">
+                        <select id="select-subcategory" required name="subcategory">
                         </select>
                     </div>
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Price</label>
-                        <input type="number" name="price" step=".01" placeholder="0.00">
+                        <input type="number" required name="price" step=".01" placeholder="0.00">
                     </div>
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Quantity</label>
-                        <input type="number" name="quantity" placeholder="Quantity">
+                        <input type="number" required name="quantity" placeholder="Quantity">
                     </div>
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Form</label>
-                        <select id="select-form" name="form">
+                        <select id="select-form" required name="form">
                             <option value="">Form</option>
                             <option value="mask">Mask</option>
                             <option value="gel">Gel</option>
@@ -75,47 +76,54 @@
                     </div>
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Measure</label>
-                        <select id="select-measurement" name="measurement_unit">
+                        <select id="select-measurement" required name="measurement_unit">
                             <option value="ml">ml</option>
                             <option value="g">g</option>
                         </select>
                     </div>
                     <div class="form__group">
                         <label class="text__5 text__5-roboto form__label">Discount %</label>
-                        <input type="number" name="discount" placeholder="Discount percentage">
+                        <input type="number" required name="discount" placeholder="Discount percentage">
                     </div>
+                </section>
 
-
-                    <h4 class="text__5 text__3-athene">Ingredients</h4>
-                    <div class="ingredients__container">
-                        <% ingredients.forEach(ingredient => { %>
-                        <div class="ingredients__container-checkbox">
-                            <input type="checkbox" name="ingredient" value="<%= ingredient._key %>">
-                            <label class="text__5 text__5-roboto" for="ingredient"><span
-                                    class="ingredient-name"><%= ingredient.ingredient_name %></span></label> <br>
-                        </div>
-                        <% }) %>
+                <h4 class="text__5 text__3-athene">Ingredients</h4>
+                <div class="ingredients__container">
+                    <% ingredients.forEach(ingredient => { %>
+                    <div class="ingredients__container-checkbox">
+                        <input type="checkbox" name="ingredient" value="<%= ingredient._key %>">
+                        <label class="text__5 text__5-roboto" for="ingredient"><span
+                                class="ingredient-name"><%= ingredient.ingredient_name %></span></label> <br>
                     </div>
-                    <br>
+                    <% }) %>
+                </div>
             </div>
-            <div>
+                <br>
+            </div>
+            <div class="form__admin-container ingredients__container-create">
                 <h4 class="text__5 text__3-athene">Create Ingredients</h4>
-                <p class="text__5 text__5-lora_medium">Ingredient not here? Create it! 3 new ingredients are allowed. </p>
-                <button id="create-ingredient" class="btn btn-general">Create Ingred.</button> <br><br>
+                <p class="text__5 text__5-lora_medium ingredients__container-create_p">Ingredient not here? Create
+                    it! 3
+                    new ingredients are allowed. </p>
+                <button id="create-ingredient" class="btn btn-text">Create ingredient!</button> <br><br>
                 <div class="ingredients__container-new">
 
                 </div>
-                <button type="submit" class="btn btn-general">Create Product</button>
-                <button class="btn btn-general btn-general_reverse">Cancel</button>
-                </form>
+                <div class="ingredients__container-create_buttons">
+                    <button type="submit" class="btn btn-general">Create Product</button>
+                    <!-- <button class="btn btn-general btn-general_reverse">Cancel</button> -->
+                </div>
             </div>
-        </div>
+        </form>
+
+
+
         <div class="admin__main-grid_item-2">
             <h3 class="text__3 text__3-athene">Manipulate product</h3>
 
             <!-- TODO: read/update/delete with modals -->
 
-            <div class="products__container">
+            <div class="products__container-admin form__admin-container">
 
                 <% products.forEach(oProduct => { %>
 
@@ -124,7 +132,7 @@
                     <form class="remove-product" method="POST" action="admin/remove"
                         data-formProductId="<%= oProduct._id %>">
                         <input name="idProduct" type="hidden" value="<%= oProduct._id %>">
-                        <button type="submit">Remove Product</button>
+                        <button type="submit">Delete</button>
                     </form>
                 </div>
 
@@ -136,41 +144,43 @@
 
 
     <template id="template-ingredient">
-        <div class="form new-ingredient">
-            <div class="form__group">
-                <label class="text__5 text__5-roboto form__label">Ingredient name</label>
-                <input type="text" id="ingredient_name-input" name="ingredient_name"
-                    placeholder="Enter ingredient name">
-            </div>
-            <div class="form__group">
-                <label class="text__5 text__5-roboto form__label">Ingredient effect*</label>
-                <select id="ingredient_effect-select_a" name="ingredient_effect" required>
-                    <option value="">Effect required</option>
-                    <% effects.forEach(effect => { %>
-                    <option value="<%= effect._key %>"><%= effect.effect %></option>
-                    <% }) %>
-                </select>
-            </div>
-            <div class="form__group">
-                <label class="text__5 text__5-roboto form__label">Ingredient effect</label>
-                <select id="ingredient_effect-select_b" name="ingredient_effect">
-                    <option value="">Effect optional</option>
-                    <% effects.forEach(effect => { %>
-                    <option value="<%= effect._key %>"><%= effect.effect %></option>
-                    <% }) %>
-                </select>
-            </div>
-            <div class="form__group">
-                <label class="text__5 text__5-roboto form__label">Ingredient effect</label>
-                <select id="ingredient_effect-select_c" name="ingredient_effect">
-                    <option value="">Effect optional</option>
-                    <% effects.forEach(effect => { %>
-                    <option value="<%= effect._key %>"><%= effect.effect %></option>
-                    <% }) %>
-                </select>
+        <div class="form">
+            <div class="form__new-ingredient">
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Ing. name</label>
+                    <input type="text" id="ingredient_name-input" name="ingredient_name" required
+                        placeholder="Enter ingredient name">
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Ing. effect*</label>
+                    <select id="ingredient_effect-select_a" name="ingredient_effect" required>
+                        <option value="">Effect required</option>
+                        <% effects.forEach(effect => { %>
+                        <option value="<%= effect._key %>"><%= effect.effect %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Ing. effect</label>
+                    <select id="ingredient_effect-select_b" name="ingredient_effect">
+                        <option value="">Effect optional</option>
+                        <% effects.forEach(effect => { %>
+                        <option value="<%= effect._key %>"><%= effect.effect %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Ing. effect</label>
+                    <select id="ingredient_effect-select_c" name="ingredient_effect">
+                        <option value="">Effect optional</option>
+                        <% effects.forEach(effect => { %>
+                        <option value="<%= effect._key %>"><%= effect.effect %></option>
+                        <% }) %>
+                    </select>
+                </div>
             </div>
             <p class="text__5 text__5-lora_medium">Effect not here? Create it! 2 new effects are allowed.</p>
-            <button id="create-effect" class="btn btn-general">Create Effect</button>
+            <button id="create-effect" class="btn btn-text">Create effect!</button>
             <div class="effects__container-new">
 
             </div>
@@ -179,23 +189,25 @@
     </template>
 
     <template id="template-effect">
-        <div class="form new-effect">
-            <div class="form__group">
-                <label class="text__5 text__5-roboto form__label">Effect name</label>
-                <input type="text" id="effect_key-input" name="effect_key" placeholder="Enter effect name" required>
-            </div>
-            <div class="form__group">
-                <label class="text__5 text__5-roboto form__label">Effect description</label>
-                <input type="text" id="effect_description-input" name="effect_description"
-                    placeholder="Enter description" required>
-            </div>
-            <div class="form__group">
-                <label class="text__5 text__5-roboto form__label">Effect type</label>
-                <select id="effect_type-select" name="effect_type" required>
-                    <option value=""></option>
-                    <option value="prevents">Prevents</option>
-                    <option value="ensures">Ensures</option>
-                </select>
+        <div class="form">
+            <div class="form__new-effect">
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Eff. name</label>
+                    <input type="text" id="effect_key-input" name="effect_key" placeholder="Enter effect name" required>
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Eff. desc.</label>
+                    <input type="text" id="effect_description-input" name="effect_description"
+                        placeholder="Enter description" required>
+                </div>
+                <div class="form__group">
+                    <label class="text__5 text__5-roboto form__label">Eff. type</label>
+                    <select id="effect_type-select" name="effect_type" required>
+                        <option value=""></option>
+                        <option value="prevents">Prevents</option>
+                        <option value="ensures">Ensures</option>
+                    </select>
+                </div>
             </div>
             <button id="remove-effect" class="btn btn-general btn-general_reverse">Remove effect</button>
         </div>

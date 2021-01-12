@@ -225,6 +225,8 @@ body {
     justify-content: space-between; }
     .shop .products__container-articles .products__container-article {
       margin-bottom: 2.5rem; }
+      .shop .products__container-articles .products__container-article_brand {
+        text-transform: capitalize; }
 
 .product {
   width: 100vw;
@@ -435,12 +437,94 @@ body {
         font-weight: 100; }
       .admin__main .ingredients__container-checkbox * {
         display: inline-block; }
+    .admin__main .ingredients__container-create {
+      margin-top: 4rem; }
+      .admin__main .ingredients__container-create p {
+        color: #635E5E; }
+      .admin__main .ingredients__container-create_p {
+        margin: 1.5rem 0; }
+      .admin__main .ingredients__container-create_buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 1rem; }
+        .admin__main .ingredients__container-create_buttons button {
+          width: 15rem; }
+    .admin__main .ingredients__container-new .form {
+      border: 2px dotted pink;
+      padding: 1rem;
+      margin-bottom: 1rem; }
+      .admin__main .ingredients__container-new .form #remove-ingredient {
+        margin-bottom: 1rem;
+        margin-left: calc(50% - 8.5rem); }
+  .admin__main .effects__container-new .form {
+    border: 2px dotted pink;
+    padding: 1rem; }
+    .admin__main .effects__container-new .form button {
+      margin-bottom: 1rem;
+      margin-left: calc(50% - 8.5rem); }
+  .admin__main .products__container-admin {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative; }
+    .admin__main .products__container-admin .products__container-article_price {
+      display: none; }
+    .admin__main .products__container-admin .products__container-article {
+      width: 16rem;
+      color: #635E5E;
+      position: relative; }
+      .admin__main .products__container-admin .products__container-article_hover {
+        position: absolute;
+        z-index: 3;
+        width: 16rem;
+        height: 22rem; }
+      .admin__main .products__container-admin .products__container-article_hover:hover {
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.3); }
+      .admin__main .products__container-admin .products__container-article h4 {
+        font-size: 1.4rem;
+        height: 3.5rem;
+        overflow-y: hidden;
+        overflow-x: hidden; }
+      .admin__main .products__container-admin .products__container-article h4, .admin__main .products__container-admin .products__container-article p {
+        margin: 1.5rem 0; }
+      .admin__main .products__container-admin .products__container-article_img {
+        border: 1px solid #E9E7E6;
+        background-color: white;
+        padding: 2rem;
+        width: 16rem;
+        height: 22rem;
+        object-fit: contain; }
+    .admin__main .products__container-admin button {
+      position: absolute;
+      width: 16rem;
+      margin-top: -8.5rem;
+      padding: 0.5rem 0;
+      border: 1px solid #CECAC7;
+      text-transform: uppercase;
+      color: white;
+      background-color: #2F2928; }
   .admin__main #select-subcategory option {
     text-transform: capitalize; }
 
+.ingredient-name {
+  text-transform: lowercase; }
+
+.form__admin-container {
+  max-height: 65vh;
+  overflow-y: scroll;
+  padding-right: 1rem; }
+  .form__admin-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
+  .form__admin-container::-webkit-scrollbar {
+    width: 5px; }
+  .form__admin-container::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid #555555; }
+
 .btn-general {
   font-family: 'Lora', serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   height: 3.5rem;
   width: 17rem;
   text-transform: uppercase;
@@ -452,6 +536,16 @@ body {
     color: #DB7F8E;
     border: 2px solid #DB7F8E;
     background-color: white; }
+
+.btn-text {
+  font-family: 'Lora', serif;
+  font-size: 1.4rem;
+  border: 0;
+  background-color: transparent;
+  color: #DB7F8E;
+  font-weight: 900; }
+  .btn-text:hover {
+    cursor: pointer; }
 
 .nav {
   text-align: center;
@@ -508,13 +602,58 @@ body {
     .form__signup div:nth-of-type(12) {
       grid-column: 4/span 3;
       grid-row: 5/span 1; }
+  .form__admin-create {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 2rem; }
+    .form__admin-create div:nth-of-type(1) {
+      grid-column: 1/span 3;
+      grid-row: 1/span 1; }
+    .form__admin-create div:nth-of-type(2) {
+      grid-column: 4/span 3;
+      grid-row: 1/span 1; }
+    .form__admin-create div:nth-of-type(3) {
+      grid-column: 1/span 4;
+      grid-row: 2/span 1; }
+    .form__admin-create div:nth-of-type(4) {
+      grid-column: 5/span 2;
+      grid-row: 2/span 1; }
+    .form__admin-create div:nth-of-type(5) {
+      grid-column: 1/span 2;
+      grid-row: 3/span 1; }
+    .form__admin-create div:nth-of-type(6) {
+      grid-column: 3/span 2;
+      grid-row: 3/span 1; }
+    .form__admin-create div:nth-of-type(7) {
+      grid-column: 5/span 2;
+      grid-row: 3/span 1; }
+    .form__admin-create div:nth-of-type(8) {
+      grid-column: 1/span 2;
+      grid-row: 4/span 1; }
+    .form__admin-create div:nth-of-type(9) {
+      grid-column: 3/span 2;
+      grid-row: 4/span 1; }
+    .form__admin-create div:nth-of-type(10) {
+      grid-column: 5/span 2;
+      grid-row: 4/span 1; }
+  .form__new-ingredient {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem; }
+  .form__new-effect {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem; }
   .form button {
     margin: 0 auto;
     grid-column: 1/span 6;
     margin-top: 1rem;
     margin-bottom: 2.5rem; }
   .form select {
+    text-transform: capitalize;
     background-color: #FEFCFC; }
+    .form select:invalid {
+      color: #CECAC7; }
   .form option {
     color: black;
     font-style: normal; }
@@ -540,7 +679,7 @@ body {
   height: 2.5rem;
   width: 100%; }
 
-.form select, .form input::placeholder, .form input[type=date] {
+.form select::placeholder, .form input::placeholder, .form input[type=date] {
   font-style: italic;
   font-size: 1.4rem;
   font-family: 'Roboto', sans-serif;

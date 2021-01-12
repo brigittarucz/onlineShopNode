@@ -10,11 +10,11 @@
         <form class="form form__login" id="login" method="POST" action="authenticate/login">
             <div class="form__group">
                 <label class="text__5 text__5-roboto form__label">Email</label>
-                <input type="text" name="email" value="brigitta@yahoo.com" placeholder="Enter your email">
+                <input type="text" name="email" required value="brigitta@yahoo.com" placeholder="Enter your email">
             </div>
             <div class="form__group">
                 <label class="text__5 text__5-roboto form__label">Password</label>
-                <input type="password" name="password" value="password" placeholder="Enter your password">
+                <input type="password" name="password" required value="password" placeholder="Enter your password">
             </div>
             <button class="btn-general" type="submit">Login</button>
             <h4 class="text__6-lora text__6">Don't have an account? Sign up <a onclick="openModal()" class="signup">here</a>.</h4>
@@ -42,19 +42,19 @@
             <form class="form form__signup" id="signup" method="POST" action="authenticate/signup">
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">First name</label>
-                    <input type="text" name="first_name" placeholder="Enter your first name">
+                    <input type="text" name="first_name" required placeholder="Enter your first name">
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">Last name</label>
-                    <input type="text" name="last_name" placeholder="Enter your last name">
+                    <input type="text" name="last_name" required placeholder="Enter your last name">
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">Email</label>
-                    <input type="text" name="email" placeholder="Enter your email">
+                    <input type="text" name="email" required placeholder="Enter your email">
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">Country</label>
-                    <select name="country">
+                    <select name="country" required>
                         <option value="">Country</option>
                         <option value="denmark">Denmark</option>
                         <option value="romania">Romania</option>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">City</label>
-                    <select name="city">
+                    <select name="city" required>
                         <option value="">City</option>
                         <option value="copenhagen">Copenhagen</option>
                         <option value="bucharest">Bucharest</option>
@@ -72,23 +72,23 @@
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">Street</label>
-                    <input type="text" name="street" placeholder="Enter your street">
+                    <input type="text" required name="street" placeholder="Enter your street">
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">Postal Code</label>
-                    <input type="text" name="postal_code" placeholder="Enter postal code">
+                    <input type="text" required name="postal_code" placeholder="Enter postal code">
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">Date Of Birth</label>
-                    <input type="date" name="birthdate" placeholder="dd/mm/yyyy">
+                    <input type="date" required name="birthdate" placeholder="dd/mm/yyyy">
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">Password</label>
-                    <input type="text" name="password" placeholder="Enter password">
+                    <input type="text" required name="password" placeholder="Enter password">
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">Repeat Password</label>
-                    <input type="text" name="repeatpassword" placeholder="Repeat password">
+                    <input type="text" required name="repeatpassword" placeholder="Repeat password">
                 </div>
                 <div class="form__group">
                     <label class="text__5 text__5-roboto form__label">Hair Color</label>

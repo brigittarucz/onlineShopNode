@@ -40,11 +40,18 @@ exports.postAdmin = (req, res, next) => {
         var obj = req.body;
         var aIngredientsExistent = [];
         var iIngredientCount;
-        
-        obj.ingredient.forEach(ingredient => {
-            aIngredientsExistent.push(ingredient);
-        })
 
+    
+
+        if(Array.isArray(obj.ingredient)) {
+            obj.ingredient.forEach(ingredient => {
+                aIngredientsExistent.push(ingredient);
+            })
+        } else {
+            aIngredientsExistent.push(obj.ingredient);
+        }
+
+        console.log(obj);
         // If ingredient_name property exists on object
         if (obj.ingredient_name) {
             // If ingredient_name !empty || typeof(string)
@@ -77,7 +84,9 @@ exports.postAdmin = (req, res, next) => {
                     name: obj.ingredient_name,
                     effects: []
                 };
+                obj.ingredient = []; 
                 obj.ingredient.push(obj.ingredient_name.replace(/\s+/g, '-'));
+                console.log(obj.ingredient);
             }
 
             for (let i = iInputFieldsToJumpOver; i < properties.length; i++) {
@@ -137,8 +146,11 @@ exports.postAdmin = (req, res, next) => {
             }
         }
 
+        var sBrand = obj.brand;
+        sBrand = sBrand.toLowerCase();
+        console.log(sBrand);
         // console.log(aIngredientsSanitized);
-        var newProduct = new Product(obj.brand, obj.name, obj.image, obj.category, obj.subcategory, obj.form, parseFloat(obj.price), parseInt(obj.quantity), obj.measurement_unit, parseInt(obj.discount), obj.ingredient);
+        var newProduct = new Product(sBrand, obj.name, obj.image, obj.category, obj.subcategory, obj.form, parseFloat(obj.price), parseInt(obj.quantity), obj.measurement_unit, parseInt(obj.discount), obj.ingredient);
         newProduct.getProductByName(newProduct.name).then(productExists => {
             if(!productExists.length) {
                 newProduct.createProduct(newProduct).then(resultCreateProduct => {
@@ -273,10 +285,14 @@ exports.postAdmin = (req, res, next) => {
                         })
                     }
             
+                    return res.redirect('/shop');
                 }).catch(error => {
                     console.log(error.response.body.message);
                 })
             
+            } else {
+                console.log("product exists");
+                return res.redirect('/admin');
             }
         })
     }

@@ -55,7 +55,7 @@
             <%- include('../includes/filter.ejs') %>
             <div class="products__container-articles">
                 <% products.forEach((oProduct) => { %>
-                <% if(oProduct.category === 'skin care') { %>
+                <% if(oProduct.category === 'skin care' || oProduct.category === 'skin-care') { %>
                 <div>
                     <%- include('../includes/product.ejs', {oProduct: oProduct}) %>
                 </div>
@@ -69,7 +69,7 @@
             <%- include('../includes/filter.ejs') %>
             <div class="products__container-articles">
                 <% products.forEach((oProduct) => { %>
-                <% if(oProduct.category === 'body care') { %>
+                <% if(oProduct.category === 'body care' || oProduct.category === 'body-care') { %>
                 <div>
                     <%- include('../includes/product.ejs', {oProduct: oProduct}) %>
                 </div>
