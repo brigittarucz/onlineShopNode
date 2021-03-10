@@ -14,4 +14,14 @@ A personal project that combines the power of graphs and documents with a relati
   - Recommendation System ( based on graphs )
   - Node-based Authentication System
 
-![Image](./READMEGraphics/shop-admin1.PNG)
+### Presentation of the features
+  - Login View
+![Image](./READMEGraphics/shop-login1.PNG)
+  - Signup View
+![Image](./READMEGraphics/shop-signup1.PNG)
+  - Home View
+![Image](./READMEGraphics/shop-home1.PNG)
+  - Admin View ( on the spot creation )
+![Image](./READMEGraphics/shop-admin1.PNG) 
+  - Product View ( with new product created and its recommendations )
+![Image](./READMEGraphics/shop-item1.PNG) 
